@@ -1,6 +1,107 @@
+import bg from "../../assets/pokemon_bg.png";
+import { MainPage } from "./MainPage";
 
 export const Homepage = () => {
   return (
-    <div>Homepage</div>
-  )
-}
+    <>
+    
+    <div
+      className="
+      min-h-screen
+      bg-cover
+      bg-center
+      relative
+      flex items-center
+      px-16
+      "
+      style={{
+        backgroundImage: `url(${bg})`,
+      }}
+    >
+
+      <div className="absolute inset-0 bg-black/40"></div>
+
+      <div
+        className="
+        relative z-10
+        max-w-3xl
+        text-white
+        "
+      >
+
+        <h1
+          className="
+          text-7xl
+          font-extrabold
+          leading-tight
+          drop-shadow-2xl
+          "
+        >
+          Enter The
+          <span className="text-yellow-400"> Pokémon </span>
+          AI Arena
+        </h1>
+
+        <p
+          className="
+          mt-6
+          text-xl
+          text-gray-200
+          leading-relaxed
+          "
+        >
+          Battle with intelligent Pokémon strategies,
+          explore AI-powered encounters,
+          and experience a futuristic Pokédex universe.
+        </p>
+
+        <div className="flex gap-6 mt-10">
+
+          <button
+            className="
+            px-8 py-4
+            rounded-3xl
+            bg-cyan-500/80
+            backdrop-blur-md
+            hover:bg-cyan-400
+            hover:scale-110
+            transition-all
+            duration-300
+            text-lg
+            font-semibold
+            shadow-2xl
+            "
+          >
+            Start Exploring
+          </button>
+
+          <button
+            className="
+            px-8 py-4
+            rounded-3xl
+            border
+            border-white/30
+            bg-white/10
+            backdrop-blur-md
+            hover:bg-white/20
+            hover:scale-110
+            transition-all
+            duration-300
+            text-lg
+            font-semibold
+            "
+          >
+            Learn More
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+    <div>
+      <MainPage/>
+    </div>
+    </>
+  );
+};
