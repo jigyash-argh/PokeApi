@@ -1,9 +1,8 @@
+import { api } from "../../api/axios";
 export const MainPage=()=>{
-    return(
-        <>
+    return (
         <div>
-            mainpage
+            main page 
         </div>
-        </>
     )
 }

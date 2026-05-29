@@ -6,18 +6,19 @@ export const Homepage = () => {
     <>
     
     <div
-      className="
-      min-h-screen
-      bg-cover
-      bg-center
-      relative
-      flex items-center
-      px-16
-      "
-      style={{
-        backgroundImage: `url(${bg})`,
-      }}
-    >
+  className="
+  min-h-screen
+  bg-cover
+  bg-center
+  relative
+  flex items-center
+  px-16
+  overflow-hidden
+  "
+  style={{
+    backgroundImage: `url(${bg})`,
+  }}
+>
 
       <div className="absolute inset-0 bg-black/40"></div>
 
@@ -97,7 +98,18 @@ export const Homepage = () => {
         </div>
 
       </div>
-
+    <div
+  className="
+  absolute
+  bottom-0
+  left-0
+  w-full
+  h-40
+  bg-gradient-to-b
+  from-transparent
+  to-black
+  "
+></div>
     </div>
     <div>
       <MainPage/>
