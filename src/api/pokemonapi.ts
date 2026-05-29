@@ -11,21 +11,3 @@ export const getPokemonById = async (id: number) => {
   const response = await api.get(`/pokemon/${id}`);
   return response.data;
 };
-export const getFeaturedPokemons = async (
-  limit = 6
-) => {
-
-  const list = await api.get(
-    `/pokemon?limit=${limit}`
-  );
-
-  const detailedPokemons = await Promise.all(
-    list.data.results.map((pokemon) =>
-      api.get(`/pokemon/${pokemon.name}`)
-    )
-  );
-
-  return detailedPokemons.map(
-    (pokemon) => pokemon.data
-  );
-};
