@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Search, ArrowRight, AlertCircle } from "lucide-react";
-// Make sure this path matches your folder structure
-import { getPokemonList, getPokemonbyName } from "../../api/pokemonapi";
+// Removed getPokemonList since we are fetching a custom curated list now
+import { getPokemonbyName } from "../../api/pokemonapi";
 import { PokemonCard } from "../cards/PokemonCard";
 import { SearchedPokemonCard } from "../cards/SearchedPokemonCard";
 
@@ -20,17 +20,34 @@ export const SearchPokemon = () => {
     "bulbasaur",
     "squirtle",
     "gengar",
-    "mewtwo"
+    "mewtwo",
+    "butterfree",
+    "pidgeotto",
+    "togepi",
+    "jigglypuff",
+    "snorlax"
   ];
+
+  // A hand-picked list of 40 iconic Pokémon to load initially
+  const initialPokemonNames = [
+    "bulbasaur", "ivysaur", "venusaur", "charmander", "charmeleon", "charizard",
+    "squirtle", "wartortle", "blastoise", "caterpie", "butterfree", "pidgey",
+    "pidgeotto", "pidgeot", "pikachu", "raichu", "jigglypuff", "meowth",
+    "psyduck", "abra", "kadabra", "alakazam", "machop", "machamp",
+    "geodude", "gengar", "onix", "cubone", "scyther", "magikarp",
+    "gyarados", "lapras", "eevee", "vaporeon", "jolteon", "flareon",
+    "snorlax", "mewtwo", "mew", "togepi"
+  ];
+
   useEffect(() => {
     ;(async () => {
       try {
         setLoading(true);
-        const listData = await getPokemonList(); 
         
+        // Fetch detailed data for all 40 specific Pokémon
         const detailedData = await Promise.all(
-          listData.results.map((pokemon: any) =>
-            getPokemonbyName(pokemon.name)
+          initialPokemonNames.map((name: string) =>
+            getPokemonbyName(name)
           )
         );
         
@@ -83,7 +100,6 @@ export const SearchPokemon = () => {
   };
 
   return (
-
     <div className="min-h-screen bg-gradient-to-br from-sky-400 via-green-300 to-yellow-200 pt-32 pb-20 px-4 md:px-8 flex flex-col items-center gap-16 relative z-0 selection:bg-red-500 selection:text-white">
       
       {/* Background Pokeball Watermark */}
@@ -198,14 +214,14 @@ export const SearchPokemon = () => {
               search.trim() !== "" && displayedPokemons.length === 1 ? (
                 // Show detailed card if exactly one pokemon is searched
                 <SearchedPokemonCard 
-  pokemon={displayedPokemons[0]} 
-  onEvolutionClick={(clickedName) => {
-    setSearch(clickedName); // Update the input field text
-    handleSearch(clickedName); // Trigger the API fetch!
-  }} 
-/>
+                  pokemon={displayedPokemons[0]} 
+                  onEvolutionClick={(clickedName) => {
+                    setSearch(clickedName); // Update the input field text
+                    handleSearch(clickedName); // Trigger the API fetch!
+                  }} 
+                />
               ) : (
-                // Show grid for the default 30 limit list
+                // Show grid for the default 40 limit list
                 <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 md:gap-8">
                   {displayedPokemons.map((pokemon) => (
                     <PokemonCard key={pokemon.id || pokemon.name} pokemon={pokemon} />
