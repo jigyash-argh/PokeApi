@@ -125,7 +125,7 @@ export const PokemonCard = ({ pokemon }) => {
               Height
             </p>
 
-            <h3 className="text-xl font-bold">
+            <h3 className="text-xl font-bold text-white">
               {pokemon.height}
             </h3>
           </div>
@@ -142,7 +142,7 @@ export const PokemonCard = ({ pokemon }) => {
               Weight
             </p>
 
-            <h3 className="text-xl font-bold">
+            <h3 className="text-xl font-bold text-white">
               {pokemon.weight}
             </h3>
           </div>

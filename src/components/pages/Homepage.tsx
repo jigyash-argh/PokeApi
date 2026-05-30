@@ -1,6 +1,6 @@
 import bg from "../../assets/pokemon_bg.png";
 import { MainPage } from "./MainPage";
-
+import { Link } from "react-router-dom";
 export const Homepage = () => {
   return (
     <>
@@ -57,8 +57,8 @@ export const Homepage = () => {
         </p>
 
         <div className="flex gap-6 mt-10">
-
-          <button
+          <Link to={'/pokemons'}>
+            <button
             className="
             px-8 py-4
             rounded-3xl
@@ -75,6 +75,8 @@ export const Homepage = () => {
           >
             Start Exploring
           </button>
+          </Link>
+          
 
           <button
             className="

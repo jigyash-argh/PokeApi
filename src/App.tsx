@@ -3,6 +3,7 @@ import { About } from "./components/pages/About";
 import { Homepage } from "./components/pages/Homepage";
 import { Arena } from "./components/pages/Arena";
 import { Navbar } from "./components/ui/Navbar";
+import { SearchPokemon } from "./components/pages/SearchPokemon";
 export const App=()=>{
   return(
     <>
@@ -11,6 +12,7 @@ export const App=()=>{
       <Route path="/about" element={<About/>}/>
       <Route path="/" element={<Homepage/>}/>
       <Route path="/arena" element={<Arena/>}/>
+      <Route path="/pokemons" element={<SearchPokemon/>}/>
     </Routes>
     </>
 
