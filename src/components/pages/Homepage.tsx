@@ -107,7 +107,8 @@ export const Homepage = () => {
               </button>
             </Link>
 
-            <button
+            <Link to='/about'>
+                   <button
               className="
               px-8 py-4
               rounded-3xl
@@ -125,6 +126,8 @@ export const Homepage = () => {
             >
               Learn More
             </button>
+            </Link>
+           
           </div>
         </div>
 
