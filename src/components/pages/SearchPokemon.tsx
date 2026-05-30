@@ -8,10 +8,7 @@ import { SearchedPokemonCard } from "../cards/SearchedPokemonCard";
 export const SearchPokemon = () => {
   const [search, setSearch] = useState("");
   const [isFocused, setIsFocused] = useState(false);
-  
-  // Store the default 30 Pokémon to prevent re-fetching when clearing search
   const [initialPokemons, setInitialPokemons] = useState<any[]>([]);
-  // Store the currently displayed Pokemon (either the default list, or the 1 searched)
   const [displayedPokemons, setDisplayedPokemons] = useState<any[]>([]);
   
   const [loading, setLoading] = useState(true);
@@ -25,16 +22,12 @@ export const SearchPokemon = () => {
     "gengar",
     "mewtwo"
   ];
-
-  // Fetch initial list on mount using your API service
   useEffect(() => {
     ;(async () => {
       try {
         setLoading(true);
-        // Calls your function which returns { results: [...] }
         const listData = await getPokemonList(); 
         
-        // Fetch detailed data for each Pokémon in the returned list
         const detailedData = await Promise.all(
           listData.results.map((pokemon: any) =>
             getPokemonbyName(pokemon.name)
@@ -59,7 +52,6 @@ export const SearchPokemon = () => {
     }
   }, [search, initialPokemons]);
 
-  // The actual search logic using your API service
   const handleSearch = async (queryToSearch: string) => {
     const query = queryToSearch.trim().toLowerCase();
     
@@ -73,7 +65,6 @@ export const SearchPokemon = () => {
     setError(false);
 
     try {
-      // PokeAPI accepts both names and IDs on this endpoint
       const pokemonData = await getPokemonbyName(query);
       setDisplayedPokemons([pokemonData]);
     } catch (err) {
@@ -92,7 +83,7 @@ export const SearchPokemon = () => {
   };
 
   return (
-    // VIBRANT THEME CONTAINER: Padding only, flex gaps used for spacing
+
     <div className="min-h-screen bg-gradient-to-br from-sky-400 via-green-300 to-yellow-200 pt-32 pb-20 px-4 md:px-8 flex flex-col items-center gap-16 relative z-0 selection:bg-red-500 selection:text-white">
       
       {/* Background Pokeball Watermark */}
