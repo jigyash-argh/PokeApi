@@ -65,5 +65,13 @@ Want to run the application locally? Follow these steps:
 
 1. **Clone the repository:**
 ```bash
-   git clone [https://github.com/yourusername/pokeapi-project.git](https://github.com/yourusername/pokeapi-project.git)
-   cd pokeapi-project
+   git clone https://github.com/jigyash-argh/PokeApi
+   cd pokeapi-projectInstall dependencies:
+
+Bash
+   npm install
+Start the development server:
+
+Bash
+   npm run dev
+Open your browser: Navigate to http://localhost:5173
