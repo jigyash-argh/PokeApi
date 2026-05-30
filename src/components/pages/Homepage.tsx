@@ -1,4 +1,4 @@
-import bg from "../../assets/pokemon_bg.png";
+import bg from "../../assets/pokemon_bg.webp";
 import { MainPage } from "./MainPage";
 import { Link } from "react-router-dom";
 export const Homepage = () => {
