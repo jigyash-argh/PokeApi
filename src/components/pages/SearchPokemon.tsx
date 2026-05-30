@@ -221,7 +221,6 @@ export const SearchPokemon = () => {
                   }} 
                 />
               ) : (
-                // Show grid for the default 40 limit list
                 <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 md:gap-8">
                   {displayedPokemons.map((pokemon) => (
                     <PokemonCard key={pokemon.id || pokemon.name} pokemon={pokemon} />
